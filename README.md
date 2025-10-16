@@ -42,7 +42,7 @@ This section is a place for my personal notes, code snippets, and key takeaways 
 
 ## 📜 License
 
-The code in this repository is licensed under the MIT License. You are free to use, modify, and distribute the code, but you must include the original copyright notice. See the `LICENSE` file for full details.
+The code in this repository is licensed under the MIT License. You are free to use, modify, and distribute the code, but you must include the original copyright notice. See the [MIT License](LICENSE.md) file for full details.
 
 ---
 
