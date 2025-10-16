@@ -1,7 +1,7 @@
 # My 42 Heilbronn Journey 🚀
 
 [![42 Heilbronn](https://img.shields.io/badge/42-Heilbronn-black?style=for-the-badge&logo=42)](https://www.42heilbronn.de/)
-
+[![C](https://img.shields.io/badge/C-A8B9CC?style=flat&logo=c&logoColor=black)
 This repository serves as an archive of my work at 42 Heilbronn. It documents my progress through the curriculum, starting with the C Piscine and now the Common Core.
 
 ---
@@ -12,17 +12,17 @@ Here is a list of the projects I am working on or have completed.
 
 ### C Piscine
 - [x] Shell 00
-- [ ] Shell 01
-- [ ] C 00
-- [ ] C 01
-- [ ] C 02
-- [ ] C 03
-- [ ] C 04
-- [ ] C 05
-- [ ] C 06
-- [ ] C 07
-- [ ] C 08
-- [ ] C 09
+- [x] Shell 01
+- [x] C 00
+- [x] C 01
+- [x] C 02
+- [x] C 03
+- [x] C 04
+- [x] C 05
+- [x] C 06
+- [x] C 07
+- [x] C 08
+- [x] C 09
 - [ ] C 10
 - [ ] C 11
 - [ ] C 12
@@ -35,7 +35,7 @@ Here is a list of the projects I am working on or have completed.
 
 ## 📝 Notes
 
-This section is a place for my personal notes, code snippets, and key takeaways from different concepts and projects throughout the 42 curriculum. You can find them organized in the `/notes` directory of this repository (once created).
+This section is a place for my personal notes, code snippets, and key takeaways from different concepts and projects throughout the 42 curriculum. I have created seperated folders, `/Piscine` is for all related Piscine code that I took part in July 2025, also including `Core` folder that (and will) contain all of my code that was done in my curriculum during my 42 studies.
 
 ---
 
@@ -46,4 +46,4 @@ The code in this repository is licensed under the MIT License. You are free to u
 ---
 
 > ### ⚠️ Academic Honesty
-> In accordance with the 42 Network's academic policy, this code is intended for personal archival purposes. Please do not copy or plagiarize this work. The best way to learn is by facing the challenges and solving them yourself!
+> In accordance with the 42 Network's academic policy, this code is intended for personal archival purposes. Do not copy or plagiarize this work. The best way to learn is by facing the challenges and solving them yourself!
