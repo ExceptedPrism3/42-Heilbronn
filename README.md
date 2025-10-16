@@ -11,7 +11,7 @@ This repository serves as an archive of my work at 42 Heilbronn. It documents my
 Here is a list of the projects I am working on or have completed.
 
 ### C Piscine
-- [ ] Shell 00
+- [x] Shell 00
 - [ ] Shell 01
 - [ ] C 00
 - [ ] C 01
