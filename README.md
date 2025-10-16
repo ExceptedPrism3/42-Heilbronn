@@ -36,7 +36,7 @@ Here is a list of the projects I am working on or have completed.
 
 ## 📝 Notes
 
-This section is a place for my personal notes, code snippets, and key takeaways from different concepts and projects throughout the 42 curriculum. I have created seperated folders, `/Piscine` is for all related Piscine code that I took part in July 2025, also including `Core` folder that (and will) contain all of my code that was done in my curriculum during my 42 studies.
+This section is a place for my personal notes, code snippets, and key takeaways from different concepts and projects throughout the 42 curriculum. I have created seperated folders, [/Piscine](Piscine) is for all related Piscine code that I took part in July 2025, also including `Core` folder that (and will) contain all of my code that was done in my curriculum during my 42 studies.
 
 ---
 
