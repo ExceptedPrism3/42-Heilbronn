@@ -1,7 +1,8 @@
 # My 42 Heilbronn Journey 🚀
 
 [![42 Heilbronn](https://img.shields.io/badge/42-Heilbronn-black?style=for-the-badge&logo=42)](https://www.42heilbronn.de/)
-[![C](https://img.shields.io/badge/C-A8B9CC?style=flat&logo=c&logoColor=black)
+![C](https://img.shields.io/badge/C-A8B9CC?style=flat&logo=c&logoColor=black) 
+
 This repository serves as an archive of my work at 42 Heilbronn. It documents my progress through the curriculum, starting with the C Piscine and now the Common Core.
 
 ---
