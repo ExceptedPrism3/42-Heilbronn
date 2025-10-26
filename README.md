@@ -30,7 +30,9 @@ Here is a list of the projects I am working on or have completed.
 - [ ] C 13
 
 ### Common Core
-- [ ] **Rank 01:** Libft
+- [x] **Rank 00:** C-Piscine-Reloaded
+- [x] **Rank 01:** Libft
+- [ ] **Rank 02:** Printf
 
 ---
 
