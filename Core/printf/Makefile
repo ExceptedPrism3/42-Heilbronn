@@ -6,7 +6,7 @@
 #    By: aben-cad <aben-cad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/28 13:25:33 by aben-cad          #+#    #+#              #
-#    Updated: 2025/11/02 22:49:13 by aben-cad         ###   ########.fr        #
+#    Updated: 2025/11/03 00:58:17 by aben-cad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,11 +24,7 @@ SRC = ft_strlen.c \
 	ft_strchr.c \
 	ft_printf.c
 
-SRC_B = ft_parse_flags_bonus.c
-
 OBJ = $(SRC:.c=.o)
-
-OBJ_B = $(SRC_B:.c=.o)
 
 # ---------------------------------
 
@@ -45,5 +41,4 @@ fclean: clean
 
 re: clean all
 
-
-.PHONY: all clean fclean re 
+.PHONY: all clean fclean re
