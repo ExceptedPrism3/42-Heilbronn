@@ -6,7 +6,7 @@
 /*   By: aben-cad <aben-cad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 10:23:14 by aben-cad          #+#    #+#             */
-/*   Updated: 2025/10/30 15:47:07 by aben-cad         ###   ########.fr       */
+/*   Updated: 2025/11/02 22:39:16 by aben-cad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int		ft_putnbr_fd(int n, int fd);
 int		ft_putnbr_x(unsigned long long nbr, char c);
 int		ft_putptr(void *ptr);
 char	*ft_strchr(const char *s, int c);
-
 int		ft_printf(const char *s, ...);
 
 #endif

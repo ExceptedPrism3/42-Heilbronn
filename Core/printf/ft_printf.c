@@ -6,7 +6,7 @@
 /*   By: aben-cad <aben-cad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 19:57:09 by aben-cad          #+#    #+#             */
-/*   Updated: 2025/11/02 00:14:21 by aben-cad         ###   ########.fr       */
+/*   Updated: 2025/11/02 22:34:02 by aben-cad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,14 +62,6 @@ static int	format(va_list args, const char format)
 		return (format2(args, format));
 }
 
-/*
-** Core ft_printf function
-** Loops through the format string and processes each character:
-** - If '%' found, check next char for format specifier and handle it.
-** - Otherwise, print character as-is.
-**
-** Returns: total number of characters printed.
-*/
 int	ft_printf(const char *s, ...)
 {
 	int		i;
