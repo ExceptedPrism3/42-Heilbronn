@@ -5,30 +5,28 @@
 #                                                     +:+ +:+         +:+      #
 #    By: aben-cad <aben-cad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/10/28 13:25:33 by aben-cad          #+#    #+#              #
-#    Updated: 2025/11/03 00:58:17 by aben-cad         ###   ########.fr        #
+#    Created: 2025/10/27 10:00:00 by aben-cad          #+#    #+#              #
+#    Updated: 2025/11/05 20:18:06 by aben-cad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Wextra -Werror
 
-SRC = ft_strlen.c \
+SRC = ft_printf.c \
+	ft_strlen.c \
+	ft_strchr.c \
 	ft_putchar_fd.c \
-	ft_putstr_fd.c \
+    ft_putstr_fd.c \
 	ft_putnbr_fd.c \
 	ft_putnbr_x.c \
-	ft_putptr.c \
-	ft_strchr.c \
-	ft_printf.c
+	ft_putptr.c
 
 OBJ = $(SRC:.c=.o)
 
-# ---------------------------------
-
-$(NAME) : $(OBJ)
+$(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
 all: $(NAME)
@@ -39,6 +37,6 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-re: clean all
+re: fclean all
 
 .PHONY: all clean fclean re
