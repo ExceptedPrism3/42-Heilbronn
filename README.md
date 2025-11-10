@@ -30,7 +30,10 @@ Here is a list of the projects I am working on or have completed.
 - [ ] C 13
 
 ### Common Core
-- [ ] **Rank 01:** Libft
+- [x] **Rank 01:** Libft
+- [x] **Rank 02:** Printf
+- [x] **Rank 03:** GetNextLine
+- [ ] **Rank 04:** Born2BeRoot
 
 ---
 
