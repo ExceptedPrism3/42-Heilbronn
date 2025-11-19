@@ -32,10 +32,11 @@ Here is a list of the projects I am working on or have completed.
 ### Common Core
 - [x] **Rank 01:** Libft
 ##### 1st Circle:
-- [x] **Rank 02:** Printf
-- [x] **Rank 03:** GetNextLine
-- [ ] **Rank 04:** Born2BeRoot
-
+- [x] **Rank 02:** printf
+- [x] **Rank 03:** get_next_line
+- [x] **Rank 04:** Born2beroot
+##### 2st Circle:
+- [ ] **Rank 05:** Push_swap
 ---
 
 ## 📝 Notes
