@@ -48,7 +48,7 @@ int	main(int argc, char **argv)
 	else if (a->size <= 5)
 		sort_five(a, b);
 	else
-		sort_radix(a, b);
+		sort_greedy(a, b);
 	stack_free(a);
 	stack_free(b);
 	return (0);

@@ -70,3 +70,10 @@ int	find_index(int *sorted, int size, int value)
 	}
 	return (0);
 }
+
+int	ft_abs(int x)
+{
+	if (x < 0)
+		return (-x);
+	return (x);
+}

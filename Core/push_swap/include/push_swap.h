@@ -44,6 +44,7 @@ int					stack_is_sorted(t_stack *s);
 /* utils */
 int					*duplicate_and_sort(int *arr, int size);
 int					find_index(int *sorted, int size, int value);
+int					ft_abs(int x);
 
 /* operations */
 void				op_sa(t_stack *a);
@@ -62,5 +63,13 @@ void				op_rrr(t_stack *a, t_stack *b);
 void				sort_three(t_stack *a);
 void				sort_five(t_stack *a, t_stack *b);
 void				sort_radix(t_stack *a, t_stack *b);
+void				sort_greedy(t_stack *a, t_stack *b);
+
+/* greedy utils */
+int					get_target_pos_in_b(t_stack *b, int val_a);
+int					get_target_pos_in_a(t_stack *a, int val_b);
+void				calculate_costs(int size_a, int size_b, int idx_a, int idx_b, int *cost_a, int *cost_b);
+int					total_cost(int cost_a, int cost_b);
+void				execute_move(t_stack *a, t_stack *b, int cost_a, int cost_b);
 
 #endif

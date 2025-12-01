@@ -71,5 +71,21 @@ int	*parse_values(int argc, char **argv, int *n)
 		arr[i] = (int)v;
 		i++;
 	}
+	/* check duplicates */
+	i = 0;
+	while (i < *n)
+	{
+		int j = i + 1;
+		while (j < *n)
+		{
+			if (arr[i] == arr[j])
+			{
+				free(arr);
+				return (NULL);
+			}
+			j++;
+		}
+		i++;
+	}
 	return (arr);
 }
