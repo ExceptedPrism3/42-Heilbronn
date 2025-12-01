@@ -18,6 +18,12 @@ void	sort_three(t_stack *a)
 	int	y;
 	int	z;
 
+	if (a->size == 2)
+	{
+		if (a->top->value > a->top->next->value)
+			op_sa(a);
+		return ;
+	}
 	if (a->size != 3)
 		return ;
 	x = a->top->value;
