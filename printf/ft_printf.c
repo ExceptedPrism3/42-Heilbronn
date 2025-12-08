@@ -6,24 +6,11 @@
 /* By: aben-cad <aben-cad@student.42.fr>          +#+  +:+       +#+        */
 /* +#+#+#+#+#+   +#+           */
 /* Created: 2025/10/28 19:57:09 by aben-cad          #+#    #+#             */
-/* Updated: 2025/12/09 17:00:00 by aben-cad         ###   ########.fr       */
+/* Updated: 2025/12/09 18:00:00 by aben-cad         ###   ########.fr       */
 /* */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-static void	ft_format_init(t_format *f)
-{
-	f->minus = 0;
-	f->plus = 0;
-	f->space = 0;
-	f->zero = 0;
-	f->hash = 0;
-	f->dot = 0;
-	f->width = 0;
-	f->prec = 0;
-	f->spec = 0;
-}
 
 static int	ft_dispatch(t_format f, va_list args)
 {
@@ -38,7 +25,7 @@ static int	ft_dispatch(t_format f, va_list args)
 	if (f.spec == 'p')
 		return (ft_print_ptr(f, args));
 	if (f.spec == '%')
-		return (ft_print_percent(f));
+		return (ft_putchar_fd('%', 1));
 	return (0);
 }
 
@@ -63,6 +50,15 @@ static void	ft_parse_flags(const char **s, t_format *f)
 
 const char	*ft_parse_format(const char *s, t_format *f)
 {
+	f->minus = 0;
+	f->plus = 0;
+	f->space = 0;
+	f->zero = 0;
+	f->hash = 0;
+	f->dot = 0;
+	f->width = 0;
+	f->prec = 0;
+	f->spec = 0;
 	ft_parse_flags(&s, f);
 	while (ft_isdigit(*s))
 		f->width = (f->width * 10) + (*s++ - '0');
@@ -90,9 +86,9 @@ int	ft_printf(const char *s, ...)
 		if (*s == '%')
 		{
 			s++;
-			ft_format_init(&f);
 			s = ft_parse_format(s, &f);
-			count += ft_dispatch(f, args);
+			if (f.spec)
+				count += ft_dispatch(f, args);
 		}
 		else
 			count += ft_putchar_fd(*s, 1);

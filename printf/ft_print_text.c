@@ -6,7 +6,7 @@
 /* By: aben-cad <aben-cad@student.42.fr>          +#+  +:+       +#+        */
 /* +#+#+#+#+#+   +#+           */
 /* Created: 2025/12/08 20:00:00 by aben-cad          #+#    #+#             */
-/* Updated: 2025/12/09 17:00:00 by aben-cad         ###   ########.fr       */
+/* Updated: 2025/12/09 18:00:00 by aben-cad         ###   ########.fr       */
 /* */
 /* ************************************************************************** */
 
@@ -60,18 +60,5 @@ int	ft_print_str(t_format f, va_list args)
 	count += len;
 	if (f.minus)
 		count += ft_pad(f.width, len, 0);
-	return (count);
-}
-
-int	ft_print_percent(t_format f)
-{
-	int	count;
-
-	count = 0;
-	if (!f.minus)
-		count += ft_pad(f.width, 1, f.zero);
-	count += ft_putchar_fd('%', 1);
-	if (f.minus)
-		count += ft_pad(f.width, 1, 0);
 	return (count);
 }
