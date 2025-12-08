@@ -6,7 +6,7 @@
 /* By: aben-cad <aben-cad@student.42.fr>          +#+  +:+       +#+        */
 /* +#+#+#+#+#+   +#+           */
 /* Created: 2025/10/27 10:23:14 by aben-cad          #+#    #+#             */
-/* Updated: 2025/12/08 20:45:00 by aben-cad         ###   ########.fr       */
+/* Updated: 2025/12/08 20:50:00 by aben-cad         ###   ########.fr       */
 /* */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ int			ft_putstr_fd(char *s, int fd);
 size_t		ft_strlen(const char *s);
 
 /* Parsing & Utils */
-const char	*ft_parse_format(const char *s, t_format *f, va_list args);
+/* UPDATED LINE BELOW: removed va_list args */
+const char	*ft_parse_format(const char *s, t_format *f);
 int			ft_isdigit(int c);
 int			ft_pad(int width, int len, int zero);
 

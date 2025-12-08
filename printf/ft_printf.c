@@ -6,7 +6,7 @@
 /* By: aben-cad <aben-cad@student.42.fr>          +#+  +:+       +#+        */
 /* +#+#+#+#+#+   +#+           */
 /* Created: 2025/10/28 19:57:09 by aben-cad          #+#    #+#             */
-/* Updated: 2025/12/08 20:45:00 by aben-cad         ###   ########.fr       */
+/* Updated: 2025/12/08 20:50:00 by aben-cad         ###   ########.fr       */
 /* */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ static int	ft_dispatch(t_format f, va_list args)
 	return (0);
 }
 
-const char	*ft_parse_format(const char *s, t_format *f, va_list args)
+/* UPDATED FUNCTION: removed va_list args */
+const char	*ft_parse_format(const char *s, t_format *f)
 {
 	while (*s && (*s == '-' || *s == '+' || *s == ' ' || *s == '#' || *s == '0'))
 	{
@@ -81,7 +82,7 @@ int	ft_printf(const char *s, ...)
 		{
 			s++;
 			ft_format_init(&f);
-			s = ft_parse_format(s, &f, args);
+			s = ft_parse_format(s, &f); /* UPDATED CALL: removed args */
 			count += ft_dispatch(f, args);
 		}
 		else
