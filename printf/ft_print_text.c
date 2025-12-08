@@ -6,7 +6,7 @@
 /* By: aben-cad <aben-cad@student.42.fr>          +#+  +:+       +#+        */
 /* +#+#+#+#+#+   +#+           */
 /* Created: 2025/12/08 20:00:00 by aben-cad          #+#    #+#             */
-/* Updated: 2025/12/08 20:00:00 by aben-cad         ###   ########.fr       */
+/* Updated: 2025/12/08 21:15:00 by aben-cad         ###   ########.fr       */
 /* */
 /* ************************************************************************** */
 
@@ -34,15 +34,21 @@ int	ft_print_str(t_format f, va_list args)
 	int		count;
 	int		i;
 
-	s = va_arg(args, char *);
+	if (f.spec == 's')
+		s = va_arg(args, char *);
+	else
+		s = "(nil)"; // Handling redirect from ptr
+	
 	if (!s)
 		s = "(null)";
+	
 	len = ft_strlen(s);
 	if (f.dot && f.prec < len)
 		len = f.prec;
+	
 	count = 0;
 	if (!f.minus)
-		count += ft_pad(f.width, len, f.zero); // strings usually ignore 0 flag but valid in some OS
+		count += ft_pad(f.width, len, 0); // Strings ignore zero flag generally
 	i = 0;
 	while (i < len)
 		ft_putchar_fd(s[i++], 1);

@@ -6,7 +6,7 @@
 /* By: aben-cad <aben-cad@student.42.fr>          +#+  +:+       +#+        */
 /* +#+#+#+#+#+   +#+           */
 /* Created: 2025/12/08 20:00:00 by aben-cad          #+#    #+#             */
-/* Updated: 2025/12/08 20:00:00 by aben-cad         ###   ########.fr       */
+/* Updated: 2025/12/08 21:15:00 by aben-cad         ###   ########.fr       */
 /* */
 /* ************************************************************************** */
 
@@ -38,49 +38,58 @@ static void	ft_put_abs(long n)
 	ft_putchar_fd((n % 10) + '0', 1);
 }
 
+static char	ft_get_sign(long n, t_format *f)
+{
+	if (n < 0)
+	{
+		if (f->spec != 'u')
+			return ('-');
+	}
+	else if (f->plus && f->spec != 'u')
+		return ('+');
+	else if (f->space && f->spec != 'u')
+		return (' ');
+	return (0);
+}
+
 int	ft_print_nbr(t_format f, va_list args)
 {
 	long	n;
 	int		len;
-	int		pad_len;
+	int		count;
+	char	sign;
 
 	if (f.spec == 'u')
 		n = va_arg(args, unsigned int);
 	else
 		n = va_arg(args, int);
 	len = ft_nbr_len(n);
-	if (n == 0 && f.dot && f.prec == 0) // Case: %.0d with 0 prints nothing
+	if (n == 0 && f.dot && f.prec == 0)
 		len = 0;
-	if (n < 0 || (f.plus || f.space)) // Add space for sign
-		if (f.spec != 'u')
-			f.width--;
-	if (f.prec > len)
-		pad_len = f.prec;
-	else
-		pad_len = len;
-	// Logic: If precision exists, '0' flag is ignored
+	sign = ft_get_sign(n, &f);
+	if (sign)
+		f.width--;
 	if (f.dot)
-		f.zero = 0;
+		f.zero = 0; // Precision disables zero flag
+	if (f.prec < len)
+		f.prec = len;
 	
-	int count = 0;
-	// 1. Left Padding (if not minus)
-	if (!f.minus)
-		count += ft_pad(f.width, pad_len, f.zero);
-	// 2. Sign
-	if (n < 0 && f.spec != 'u')
-		count += ft_putchar_fd('-', 1);
-	else if (f.plus && f.spec != 'u')
-		count += ft_putchar_fd('+', 1);
-	else if (f.space && f.spec != 'u')
-		count += ft_putchar_fd(' ', 1);
-	// 3. Precision Zeros
-	count += ft_pad(f.prec, len, 1);
-	// 4. Number
-	if (!(n == 0 && f.dot && f.prec == 0))
-		ft_put_abs(n);
-	count += len;
-	// 5. Right Padding (if minus)
-	if (f.minus)
-		count += ft_pad(f.width, pad_len, 0);
+	count = 0;
+	// 1. If Zero flag: Sign -> Zeros -> Num
+	if (f.zero)
+	{
+		if (sign) count += ft_putchar_fd(sign, 1);
+		count += ft_pad(f.width, f.prec, 1);
+		if (!(n == 0 && f.dot && f.prec == 0)) ft_put_abs(n);
+	}
+	// 2. Normal: Space -> Sign -> Zeros -> Num -> Space
+	else
+	{
+		if (!f.minus) count += ft_pad(f.width, f.prec, 0);
+		if (sign) count += ft_putchar_fd(sign, 1);
+		count += ft_pad(f.prec, len, 1);
+		if (!(n == 0 && f.dot && f.prec == 0)) ft_put_abs(n);
+		if (f.minus) count += ft_pad(f.width, f.prec, 0);
+	}
 	return (count);
 }
