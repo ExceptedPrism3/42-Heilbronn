@@ -78,24 +78,20 @@ int	ft_print_ptr(t_format f, va_list args)
 	unsigned long long	p;
 	int					len;
 	int					count;
-	char				*nil_str;
 
 	p = (unsigned long long)va_arg(args, void *);
 	if (!p)
 	{
-		nil_str = "(nil)";
-		len = 5;
-		count = 0;
-		if (!f.minus) count += ft_pad(f.width, len, 0);
-		count += ft_putstr_fd(nil_str, 1);
-		if (f.minus) count += ft_pad(f.width, len, 0);
-		return (count);
+		f.spec = 's';
+		return (ft_print_str(f, args)); // Redirect to string handler
 	}
 	len = ft_hex_len(p) + 2;
 	count = 0;
-	if (!f.minus) count += ft_pad(f.width, len, 0);
+	if (!f.minus)
+		count += ft_pad(f.width, len, 0);
 	count += ft_putstr_fd("0x", 1);
 	ft_puthex(p, 'x');
-	if (f.minus) count += ft_pad(f.width, len, 0);
+	if (f.minus)
+		count += ft_pad(f.width, len, 0);
 	return (count);
 }
