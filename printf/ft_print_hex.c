@@ -6,7 +6,7 @@
 /* By: aben-cad <aben-cad@student.42.fr>          +#+  +:+       +#+        */
 /* +#+#+#+#+#+   +#+           */
 /* Created: 2025/12/08 20:00:00 by aben-cad          #+#    #+#             */
-/* Updated: 2025/12/09 01:00:00 by aben-cad         ###   ########.fr       */
+/* Updated: 2025/12/09 11:00:00 by aben-cad         ###   ########.fr       */
 /* */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	ft_print_nil(t_format f, int *count)
 	len = 5;
 	if (!f.minus)
 		*count += ft_pad(f.width, len, 0);
-	*count += ft_putstr_fd((char *)s, 1);
+	*count += ft_putstr_fd(s, 1);
 	if (f.minus)
 		*count += ft_pad(f.width, len, 0);
 }

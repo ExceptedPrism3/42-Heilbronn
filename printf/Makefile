@@ -1,7 +1,6 @@
 NAME = libftprintf.a
 
 CC = cc
-# Added -fPIC to fix linker warnings on Linux/Francinette
 CFLAGS = -Wall -Wextra -Werror -fPIC
 
 SRC = ft_printf.c \
