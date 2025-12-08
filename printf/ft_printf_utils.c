@@ -33,7 +33,7 @@ int	ft_pad(int width, int len, int zero)
 	return (count);
 }
 
-int	ft_putstr_case(char *s, char spec)
+int	ft_putstr_case(const char *s, char spec)
 {
 	int	i;
 
