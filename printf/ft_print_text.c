@@ -6,7 +6,7 @@
 /* By: aben-cad <aben-cad@student.42.fr>          +#+  +:+       +#+        */
 /* +#+#+#+#+#+   +#+           */
 /* Created: 2025/12/08 20:00:00 by aben-cad          #+#    #+#             */
-/* Updated: 2025/12/08 22:30:00 by aben-cad         ###   ########.fr       */
+/* Updated: 2025/12/09 00:00:00 by aben-cad         ###   ########.fr       */
 /* */
 /* ************************************************************************** */
 
@@ -29,14 +29,17 @@ int	ft_print_char(t_format f, va_list args)
 
 int	ft_print_str(t_format f, va_list args)
 {
-	char	*s;
-	int		len;
-	int		count;
-	int		i;
+	char		*arg;
+	const char	*s;
+	int			len;
+	int			count;
+	int			i;
 
-	s = va_arg(args, char *);
-	if (!s)
+	arg = va_arg(args, char *);
+	if (!arg)
 		s = "(null)";
+	else
+		s = arg;
 	len = ft_strlen(s);
 	if (f.dot && f.prec < len)
 		len = f.prec;
@@ -45,7 +48,7 @@ int	ft_print_str(t_format f, va_list args)
 		count += ft_pad(f.width, len, 0);
 	i = 0;
 	while (i < len)
-		ft_putchar_fd(s[i++], 1);
+		ft_putchar_fd((char)s[i++], 1);
 	count += len;
 	if (f.minus)
 		count += ft_pad(f.width, len, 0);

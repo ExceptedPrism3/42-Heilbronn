@@ -6,7 +6,7 @@
 /* By: aben-cad <aben-cad@student.42.fr>          +#+  +:+       +#+        */
 /* +#+#+#+#+#+   +#+           */
 /* Created: 2025/12/08 20:00:00 by aben-cad          #+#    #+#             */
-/* Updated: 2025/12/08 22:30:00 by aben-cad         ###   ########.fr       */
+/* Updated: 2025/12/09 00:00:00 by aben-cad         ###   ########.fr       */
 /* */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ static int	ft_hex_len(unsigned long long n)
 
 static void	ft_print_nil(t_format f, int *count)
 {
-	char	*s;
-	int		len;
+	const char	*s;
+	int			len;
 
 	s = "(nil)";
 	len = 5;
 	if (!f.minus)
 		*count += ft_pad(f.width, len, 0);
-	*count += ft_putstr_fd(s, 1);
+	*count += ft_putstr_fd((char *)s, 1);
 	if (f.minus)
 		*count += ft_pad(f.width, len, 0);
 }

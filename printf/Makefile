@@ -1,7 +1,8 @@
 NAME = libftprintf.a
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+# Added -fPIC to fix linker warnings on Linux/Francinette
+CFLAGS = -Wall -Wextra -Werror -fPIC
 
 SRC = ft_printf.c \
 	ft_printf_utils.c \
@@ -19,6 +20,8 @@ $(NAME): $(OBJ)
 
 all: $(NAME)
 
+bonus: all
+
 clean:
 	rm -f $(OBJ)
 
@@ -27,4 +30,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
