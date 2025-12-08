@@ -6,13 +6,12 @@
 /* By: aben-cad <aben-cad@student.42.fr>          +#+  +:+       +#+        */
 /* +#+#+#+#+#+   +#+           */
 /* Created: 2025/12/08 20:00:00 by aben-cad          #+#    #+#             */
-/* Updated: 2025/12/08 22:00:00 by aben-cad         ###   ########.fr       */
+/* Updated: 2025/12/08 22:30:00 by aben-cad         ###   ########.fr       */
 /* */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/* Helper to update the structure with prototype definitions */
 static int	ft_num_len_base(unsigned long long n, int base)
 {
 	int	len;

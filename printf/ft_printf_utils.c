@@ -6,7 +6,7 @@
 /* By: aben-cad <aben-cad@student.42.fr>          +#+  +:+       +#+        */
 /* +#+#+#+#+#+   +#+           */
 /* Created: 2025/12/08 20:00:00 by aben-cad          #+#    #+#             */
-/* Updated: 2025/12/08 22:00:00 by aben-cad         ###   ########.fr       */
+/* Updated: 2025/12/08 22:30:00 by aben-cad         ###   ########.fr       */
 /* */
 /* ************************************************************************** */
 
@@ -51,10 +51,10 @@ int	ft_putstr_case(char *s, char spec)
 
 int	ft_putnbr_base(unsigned long long n, char spec)
 {
-	int		count;
-	char	*base;
-	char	buffer[25];
-	int		i;
+	int			count;
+	const char	*base;
+	char		buffer[25];
+	int			i;
 
 	if (spec == 'X')
 		base = "0123456789ABCDEF";
@@ -76,10 +76,10 @@ int	ft_putnbr_base(unsigned long long n, char spec)
 
 int	ft_putnbr_ptr(unsigned long long n)
 {
-	int		count;
-	char	*base;
-	char	buffer[25];
-	int		i;
+	int			count;
+	const char	*base;
+	char		buffer[25];
+	int			i;
 
 	base = "0123456789abcdef";
 	if (n == 0)

@@ -6,7 +6,7 @@
 /* By: aben-cad <aben-cad@student.42.fr>          +#+  +:+       +#+        */
 /* +#+#+#+#+#+   +#+           */
 /* Created: 2025/10/28 19:57:09 by aben-cad          #+#    #+#             */
-/* Updated: 2025/12/08 20:50:00 by aben-cad         ###   ########.fr       */
+/* Updated: 2025/12/08 22:30:00 by aben-cad         ###   ########.fr       */
 /* */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ static void	ft_format_init(t_format *f)
 	f->dot = 0;
 	f->width = 0;
 	f->prec = 0;
-	f->total_len = 0;
 	f->spec = 0;
 }
 
@@ -43,18 +42,28 @@ static int	ft_dispatch(t_format f, va_list args)
 	return (0);
 }
 
-/* UPDATED FUNCTION: removed va_list args */
+static void	ft_parse_flags(const char **s, t_format *f)
+{
+	while (**s && (**s == '-' || **s == '+' || **s == ' '
+			|| **s == '#' || **s == '0'))
+	{
+		if (**s == '-')
+			f->minus = 1;
+		else if (**s == '+')
+			f->plus = 1;
+		else if (**s == ' ')
+			f->space = 1;
+		else if (**s == '#')
+			f->hash = 1;
+		else if (**s == '0')
+			f->zero = 1;
+		(*s)++;
+	}
+}
+
 const char	*ft_parse_format(const char *s, t_format *f)
 {
-	while (*s && (*s == '-' || *s == '+' || *s == ' ' || *s == '#' || *s == '0'))
-	{
-		if (*s == '-') f->minus = 1;
-		else if (*s == '+') f->plus = 1;
-		else if (*s == ' ') f->space = 1;
-		else if (*s == '#') f->hash = 1;
-		else if (*s == '0') f->zero = 1;
-		s++;
-	}
+	ft_parse_flags(&s, f);
 	while (ft_isdigit(*s))
 		f->width = (f->width * 10) + (*s++ - '0');
 	if (*s == '.')
@@ -82,7 +91,7 @@ int	ft_printf(const char *s, ...)
 		{
 			s++;
 			ft_format_init(&f);
-			s = ft_parse_format(s, &f); /* UPDATED CALL: removed args */
+			s = ft_parse_format(s, &f);
 			count += ft_dispatch(f, args);
 		}
 		else

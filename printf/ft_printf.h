@@ -6,7 +6,7 @@
 /* By: aben-cad <aben-cad@student.42.fr>          +#+  +:+       +#+        */
 /* +#+#+#+#+#+   +#+           */
 /* Created: 2025/10/27 10:23:14 by aben-cad          #+#    #+#             */
-/* Updated: 2025/12/08 22:00:00 by aben-cad         ###   ########.fr       */
+/* Updated: 2025/12/08 22:30:00 by aben-cad         ###   ########.fr       */
 /* */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ typedef struct s_format
 	int		dot;
 	int		width;
 	int		prec;
-	int		total_len;
 	char	spec;
 }	t_format;
 
