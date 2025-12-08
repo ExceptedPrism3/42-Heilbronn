@@ -12,16 +12,23 @@
 
 #include "ft_printf.h"
 
-static int	ft_putunsigned(unsigned int n)
+#ifndef __APPLE__
+static int	print_ptr_null(t_flags flags)
 {
-	int	count;
+	int	len;
+	int	c;
 
-	count = 0;
-	if (n >= 10)
-		count += ft_putunsigned(n / 10);
-	count += ft_putchar_fd((n % 10) + '0', 1);
-	return (count);
+	len = 5;
+	c = 0;
+	if (!flags.left)
+		c += ft_print_padding(ft_calc_spaces(flags, len), 0);
+	ft_putstr_fd("(nil)", 1);
+	c += 5;
+	if (flags.left)
+		c += ft_print_padding(ft_calc_spaces(flags, len), 0);
+	return (c);
 }
+#endif
 
 static int	print_hex_prefix(t_flags flags)
 {
@@ -39,6 +46,10 @@ static int	print_generic_hex(t_flags flags, unsigned long long n, int is_ptr)
 	int	z;
 	int	len;
 
+#ifndef __APPLE__
+	if (n == 0 && is_ptr)
+		return (print_ptr_null(flags));
+#endif
 	d = ft_get_hex_len(n);
 	if (n == 0 && flags.precision == 0)
 		d = 0;

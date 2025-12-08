@@ -44,6 +44,7 @@ int				ft_print_format(t_flags flags, va_list *args);
 int				ft_print_padding(int len, int is_zero);
 int				ft_get_hex_len(unsigned long long n);
 int				ft_puthex(unsigned long long n, int is_upper);
+int				ft_putunsigned(unsigned int n);
 int				ft_unsigned_len(unsigned int n, t_flags flags);
 int				ft_hex_prefix_len(t_flags flags, unsigned long long n,
 					int is_ptr);

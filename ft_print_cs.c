@@ -54,6 +54,17 @@ static int	print_str(t_flags flags, char *s)
 	return (count);
 }
 
+int	ft_putunsigned(unsigned int n)
+{
+	int	count;
+
+	count = 0;
+	if (n >= 10)
+		count += ft_putunsigned(n / 10);
+	count += ft_putchar_fd((n % 10) + '0', 1);
+	return (count);
+}
+
 int	ft_print_cs_dispatch(t_flags flags, va_list *args)
 {
 	if (flags.spec == 'c')
