@@ -58,10 +58,12 @@ int	ft_print_hex(t_format f, va_list args)
 	if (f.prec < len)
 		f.prec = len;
 	count = 0;
-	if (!f.minus)
-		count += ft_pad(f.width, f.prec, f.zero);
+	if (!f.minus && !f.zero)
+		count += ft_pad(f.width, f.prec, 0);
 	if (f.hash && n != 0)
 		count += ft_putstr_case("0x", f.spec);
+	if (!f.minus && f.zero)
+		count += ft_pad(f.width, f.prec, 1);
 	count += ft_pad(f.prec, len, 1);
 	if (len > 0)
 		count += ft_putnbr_base(n, f.spec);
