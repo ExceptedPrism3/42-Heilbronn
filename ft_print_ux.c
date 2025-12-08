@@ -12,23 +12,27 @@
 
 #include "ft_printf.h"
 
-#ifndef __APPLE__
-static int	print_ptr_null(t_flags flags)
+#ifdef __APPLE__
+# define PTR_NULL "0x0"
+#else
+# define PTR_NULL "(nil)"
+#endif
+
+static int	print_ptr_special(t_flags flags)
 {
 	int	len;
 	int	c;
 
-	len = 5;
+	len = ft_strlen(PTR_NULL);
 	c = 0;
 	if (!flags.left)
 		c += ft_print_padding(ft_calc_spaces(flags, len), 0);
-	ft_putstr_fd("(nil)", 1);
-	c += 5;
+	ft_putstr_fd(PTR_NULL, 1);
+	c += len;
 	if (flags.left)
 		c += ft_print_padding(ft_calc_spaces(flags, len), 0);
 	return (c);
 }
-#endif
 
 static int	print_hex_prefix(t_flags flags)
 {
@@ -46,10 +50,6 @@ static int	print_generic_hex(t_flags flags, unsigned long long n, int is_ptr)
 	int	z;
 	int	len;
 
-#ifndef __APPLE__
-	if (n == 0 && is_ptr)
-		return (print_ptr_null(flags));
-#endif
 	d = ft_get_hex_len(n);
 	if (n == 0 && flags.precision == 0)
 		d = 0;
@@ -97,12 +97,18 @@ static int	print_unsigned_full(t_flags flags, unsigned int n)
 
 int	ft_print_ux_dispatch(t_flags flags, va_list *args)
 {
+	void	*ptr;
+
 	if (flags.spec == 'u')
 		return (print_unsigned_full(flags, va_arg(*args, unsigned int)));
 	else if (flags.spec == 'x' || flags.spec == 'X')
 		return (print_generic_hex(flags, va_arg(*args, unsigned int), 0));
 	else if (flags.spec == 'p')
-		return (print_generic_hex(flags, (unsigned long long)va_arg(*args,
-					void *), 1));
+	{
+		ptr = va_arg(*args, void *);
+		if (ptr == NULL)
+			return (print_ptr_special(flags));
+		return (print_generic_hex(flags, (unsigned long long)ptr, 1));
+	}
 	return (0);
 }
