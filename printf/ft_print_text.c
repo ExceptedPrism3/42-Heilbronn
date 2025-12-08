@@ -27,6 +27,22 @@ int	ft_print_char(t_format f, va_list args)
 	return (count);
 }
 
+/* ** Fix for the 7 failures:
+** If s is NULL:
+** 1. Default to "(null)"
+** 2. BUT, if precision is set (dot) and is < 6, return empty string ""
+*/
+static const char	*ft_get_str_safe(char *arg, t_format f)
+{
+	if (!arg)
+	{
+		if (f.dot && f.prec < 6)
+			return ("");
+		return ("(null)");
+	}
+	return (arg);
+}
+
 int	ft_print_str(t_format f, va_list args)
 {
 	char		*arg;
@@ -36,10 +52,7 @@ int	ft_print_str(t_format f, va_list args)
 	int			i;
 
 	arg = va_arg(args, char *);
-	if (!arg)
-		s = "(null)";
-	else
-		s = arg;
+	s = ft_get_str_safe(arg, f);
 	len = ft_strlen(s);
 	if (f.dot && f.prec < len)
 		len = f.prec;
