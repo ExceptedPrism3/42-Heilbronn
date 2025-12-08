@@ -6,7 +6,7 @@
 /* By: aben-cad <aben-cad@student.42.fr>          +#+  +:+       +#+        */
 /* +#+#+#+#+#+   +#+           */
 /* Created: 2025/10/28 19:57:09 by aben-cad          #+#    #+#             */
-/* Updated: 2025/12/09 14:00:00 by aben-cad         ###   ########.fr       */
+/* Updated: 2025/12/09 15:00:00 by aben-cad         ###   ########.fr       */
 /* */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int	ft_dispatch(t_format f, va_list args)
 	if (f.spec == 'p')
 		return (ft_print_ptr(f, args));
 	if (f.spec == '%')
-		return (ft_print_percent(f));
+		return (ft_putchar_fd('%', 1));
 	return (0);
 }
 
