@@ -6,7 +6,7 @@
 /* By: aben-cad <aben-cad@student.42.fr>          +#+  +:+       +#+        */
 /* +#+#+#+#+#+   +#+           */
 /* Created: 2025/12/08 20:00:00 by aben-cad          #+#    #+#             */
-/* Updated: 2025/12/08 22:30:00 by aben-cad         ###   ########.fr       */
+/* Updated: 2025/12/09 01:00:00 by aben-cad         ###   ########.fr       */
 /* */
 /* ************************************************************************** */
 
@@ -58,13 +58,32 @@ static char	ft_get_sign(t_format *f, long n)
 	return (0);
 }
 
+static int	ft_print_with_padding(t_format f, unsigned long long n, char sign,
+	int len)
+{
+	int	count;
+
+	count = 0;
+	if (!f.minus && !f.zero)
+		count += ft_pad(f.width, f.prec, 0);
+	if (sign)
+		count += ft_putchar_fd(sign, 1);
+	if (!f.minus && f.zero)
+		count += ft_pad(f.width, f.prec, 1);
+	count += ft_pad(f.prec, len, 1);
+	if (len > 0)
+		count += ft_putnbr_dec(n);
+	if (f.minus)
+		count += ft_pad(f.width, f.prec, 0);
+	return (count);
+}
+
 int	ft_print_nbr(t_format f, va_list args)
 {
 	long				val;
 	unsigned long long	n;
 	int					len;
 	char				sign;
-	int					count;
 
 	if (f.spec == 'u')
 		val = va_arg(args, unsigned int);
@@ -84,17 +103,5 @@ int	ft_print_nbr(t_format f, va_list args)
 		f.width--;
 	if (f.prec < len)
 		f.prec = len;
-	count = 0;
-	if (!f.minus && !f.zero)
-		count += ft_pad(f.width, f.prec, 0);
-	if (sign)
-		count += ft_putchar_fd(sign, 1);
-	if (!f.minus && f.zero)
-		count += ft_pad(f.width, f.prec, 1);
-	count += ft_pad(f.prec, len, 1);
-	if (len > 0)
-		count += ft_putnbr_dec(n);
-	if (f.minus)
-		count += ft_pad(f.width, f.prec, 0);
-	return (count);
+	return (ft_print_with_padding(f, n, sign, len));
 }

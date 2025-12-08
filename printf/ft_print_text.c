@@ -6,7 +6,7 @@
 /* By: aben-cad <aben-cad@student.42.fr>          +#+  +:+       +#+        */
 /* +#+#+#+#+#+   +#+           */
 /* Created: 2025/12/08 20:00:00 by aben-cad          #+#    #+#             */
-/* Updated: 2025/12/09 00:00:00 by aben-cad         ###   ########.fr       */
+/* Updated: 2025/12/09 01:00:00 by aben-cad         ###   ########.fr       */
 /* */
 /* ************************************************************************** */
 
@@ -27,11 +27,6 @@ int	ft_print_char(t_format f, va_list args)
 	return (count);
 }
 
-/* ** Fix for the 7 failures:
-** If s is NULL:
-** 1. Default to "(null)"
-** 2. BUT, if precision is set (dot) and is < 6, return empty string ""
-*/
 static const char	*ft_get_str_safe(char *arg, t_format f)
 {
 	if (!arg)
