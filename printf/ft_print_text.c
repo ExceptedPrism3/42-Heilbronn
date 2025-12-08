@@ -29,12 +29,9 @@ int	ft_print_char(t_format f, va_list args)
 
 static const char	*ft_get_str_safe(char *arg, t_format f)
 {
+	(void)f;
 	if (!arg)
-	{
-		if (f.dot && f.prec < 6)
-			return ("");
 		return ("(null)");
-	}
 	return (arg);
 }
 
