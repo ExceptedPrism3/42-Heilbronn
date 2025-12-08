@@ -90,10 +90,9 @@ int	ft_print_nbr(t_format f, va_list args)
 	else
 		val = va_arg(args, int);
 	sign = ft_get_sign(&f, val);
+	n = val;
 	if (val < 0 && f.spec != 'u')
 		n = -val;
-	else
-		n = val;
 	len = ft_num_len_base(n, 10);
 	if (n == 0 && f.dot && f.prec == 0)
 		len = 0;

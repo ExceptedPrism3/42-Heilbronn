@@ -49,7 +49,7 @@ int	ft_print_hex(t_format f, va_list args)
 
 	n = va_arg(args, unsigned int);
 	len = ft_hex_len(n);
-	if (n == 0 && f.dot && f.prec == 0)
+	if (n == 0 && f.dot && !f.prec)
 		len = 0;
 	if (f.hash && n != 0)
 		f.width -= 2;
