@@ -6,16 +6,14 @@
 /* By: aben-cad <aben-cad@student.42.fr>          +#+  +:+       +#+        */
 /* +#+#+#+#+#+   +#+           */
 /* Created: 2025/12/08 20:00:00 by aben-cad          #+#    #+#             */
-/* Updated: 2025/12/08 21:30:00 by aben-cad         ###   ########.fr       */
+/* Updated: 2025/12/08 22:00:00 by aben-cad         ###   ########.fr       */
 /* */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /* Helper to update the structure with prototype definitions */
-int	ft_putnbr_base(unsigned long long n, char *base);
-
-static int	ft_num_len(unsigned long long n, int base)
+static int	ft_num_len_base(unsigned long long n, int base)
 {
 	int	len;
 
@@ -28,6 +26,26 @@ static int	ft_num_len(unsigned long long n, int base)
 		len++;
 	}
 	return (len);
+}
+
+static int	ft_putnbr_dec(unsigned long long n)
+{
+	int		count;
+	char	buffer[25];
+	int		i;
+
+	if (n == 0)
+		return (ft_putchar_fd('0', 1));
+	count = 0;
+	i = 0;
+	while (n > 0)
+	{
+		buffer[i++] = (n % 10) + '0';
+		n /= 10;
+	}
+	while (--i >= 0)
+		count += ft_putchar_fd(buffer[i], 1);
+	return (count);
 }
 
 static char	ft_get_sign(t_format *f, long n)
@@ -58,8 +76,7 @@ int	ft_print_nbr(t_format f, va_list args)
 		n = -val;
 	else
 		n = val;
-	
-	len = ft_num_len(n, 10);
+	len = ft_num_len_base(n, 10);
 	if (n == 0 && f.dot && f.prec == 0)
 		len = 0;
 	if (f.dot)
@@ -68,14 +85,17 @@ int	ft_print_nbr(t_format f, va_list args)
 		f.width--;
 	if (f.prec < len)
 		f.prec = len;
-
 	count = 0;
-	if (!f.minus && !f.zero) count += ft_pad(f.width, f.prec, 0);
-	if (sign) count += ft_putchar_fd(sign, 1);
-	if (!f.minus && f.zero) count += ft_pad(f.width, f.prec, 1);
+	if (!f.minus && !f.zero)
+		count += ft_pad(f.width, f.prec, 0);
+	if (sign)
+		count += ft_putchar_fd(sign, 1);
+	if (!f.minus && f.zero)
+		count += ft_pad(f.width, f.prec, 1);
 	count += ft_pad(f.prec, len, 1);
 	if (len > 0)
-		count += ft_putnbr_base(n, "0123456789");
-	if (f.minus) count += ft_pad(f.width, f.prec, 0);
+		count += ft_putnbr_dec(n);
+	if (f.minus)
+		count += ft_pad(f.width, f.prec, 0);
 	return (count);
 }

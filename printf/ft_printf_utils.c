@@ -6,7 +6,7 @@
 /* By: aben-cad <aben-cad@student.42.fr>          +#+  +:+       +#+        */
 /* +#+#+#+#+#+   +#+           */
 /* Created: 2025/12/08 20:00:00 by aben-cad          #+#    #+#             */
-/* Updated: 2025/12/08 21:30:00 by aben-cad         ###   ########.fr       */
+/* Updated: 2025/12/08 22:00:00 by aben-cad         ###   ########.fr       */
 /* */
 /* ************************************************************************** */
 
@@ -33,27 +33,63 @@ int	ft_pad(int width, int len, int zero)
 	return (count);
 }
 
-/* ** Iterative number printer to prevent recursion issues.
-** Handles base 10 and 16.
-*/
-int	ft_putnbr_base(unsigned long long n, char *base)
+int	ft_putstr_case(char *s, char spec)
 {
-	int					count;
-	unsigned long long	base_len;
-	char				buffer[25]; // Buffer to store digits reversed
-	int					i;
+	int	i;
 
-	count = 0;
-	base_len = 0;
-	while (base[base_len])
-		base_len++;
+	i = 0;
+	while (s[i])
+	{
+		if (spec == 'X' && s[i] >= 'a' && s[i] <= 'z')
+			ft_putchar_fd(s[i] - 32, 1);
+		else
+			ft_putchar_fd(s[i], 1);
+		i++;
+	}
+	return (i);
+}
+
+int	ft_putnbr_base(unsigned long long n, char spec)
+{
+	int		count;
+	char	*base;
+	char	buffer[25];
+	int		i;
+
+	if (spec == 'X')
+		base = "0123456789ABCDEF";
+	else
+		base = "0123456789abcdef";
 	if (n == 0)
-		return (ft_putchar_fd(base[0], 1));
+		return (ft_putchar_fd('0', 1));
+	count = 0;
 	i = 0;
 	while (n > 0)
 	{
-		buffer[i++] = base[n % base_len];
-		n /= base_len;
+		buffer[i++] = base[n % 16];
+		n /= 16;
+	}
+	while (--i >= 0)
+		count += ft_putchar_fd(buffer[i], 1);
+	return (count);
+}
+
+int	ft_putnbr_ptr(unsigned long long n)
+{
+	int		count;
+	char	*base;
+	char	buffer[25];
+	int		i;
+
+	base = "0123456789abcdef";
+	if (n == 0)
+		return (ft_putchar_fd('0', 1));
+	count = 0;
+	i = 0;
+	while (n > 0)
+	{
+		buffer[i++] = base[n % 16];
+		n /= 16;
 	}
 	while (--i >= 0)
 		count += ft_putchar_fd(buffer[i], 1);
