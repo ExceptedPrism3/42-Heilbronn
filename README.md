@@ -30,14 +30,29 @@ Here is a list of the projects I am working on or have completed.
 - [ ] C 13
 
 ### Common Core
-- [x] **Rank 01:** Libft
-##### 1st Circle:
-- [x] **Rank 02:** printf
-- [x] **Rank 03:** get_next_line
-- [x] **Rank 04:** Born2beroot
-##### 2st Circle:
-- [ ] **Rank 05:** Push_swap
----
+
+#### Circle 0
+- [x] [**Libft**](Core/libft)
+
+#### Circle 1
+- [x] [**ft_printf**](Core/printf)
+- [x] [**get_next_line**](Core/get_next_line)
+- [x] [**push_swap**](Core/push_swap)
+
+#### Circle 2
+- [x] [**Born2beroot**](Core/born2beroot)
+- [ ] **Exam Rank 02**
+- [ ] **A-Maze-ing**
+- [x] [**Python Module 00**](Core/python_module_00)
+- [ ] **Python Module 01**
+- [ ] **Python Module 02**
+- [ ] **Python Module 03**
+- [ ] **Python Module 04**
+- [ ] **Python Module 05**
+- [ ] **Python Module 06**
+- [ ] **Python Module 07**
+- [ ] **Python Module 08**
+- [ ] **Python Module 09**
 
 ## 📝 Notes
 
