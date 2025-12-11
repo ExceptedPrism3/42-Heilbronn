@@ -1,9 +1,10 @@
 # My 42 Heilbronn Journey 🚀
 
 [![42 Heilbronn](https://img.shields.io/badge/42-Heilbronn-black?style=for-the-badge&logo=42)](https://www.42heilbronn.de/)
-![C](https://img.shields.io/badge/C-A8B9CC?style=flat&logo=c&logoColor=black) 
+![C](https://img.shields.io/badge/C-A8B9CC?style=flat&logo=c&logoColor=black)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
 
-This repository serves as an archive of my work at 42 Heilbronn. It documents my progress through the curriculum, starting with the C Piscine and now the Common Core.
+This repository serves as an archive of my work at 42 Heilbronn. It documents my progress through the curriculum, starting with the C Piscine and continuing through the Common Core, now including the new Python track.
 
 ---
 
@@ -53,14 +54,29 @@ Here is a list of the projects I am working on or have completed.
 - [ ] **Python Module 07**
 - [ ] **Python Module 08**
 - [ ] **Python Module 09**
+- [ ] **Python Module 10**
+
 
 ## 📝 Notes
 
-This section is a place for my personal notes, code snippets, and key takeaways from different concepts and projects throughout the 42 curriculum. I have created seperated folders, [/Piscine](Piscine) is for all related Piscine code that I took part in July 2025, also including [/Core](Core) folder that (and will) contain all of my code that was done in my curriculum during my 42 studies.
+This repository is organized into two main sections:
+
+- **[Piscine](Piscine)**: Contains work from the C Piscine (July 2025).
+- **[Core](Core)**: Contains projects from the Common Core curriculum (October Kickoff), including both C projects and the new Python modules.
+
+This section also serves as a space for personal notes, code snippets, and key takeaways from different concepts encountered throughout the 42 curriculum.
 
 ---
 
-## 📜 License
+## �️ Skills
+
+- **Languages:** C, C++, Python, Shell
+- **Tools:** Git, Vim, VS Code, PyCharm, Valgrind, GDB
+- **Concepts:** Algorithms, Data Structures, Unix/Linux Systems, Virtualization, Low-level Programming
+
+---
+
+## �📜 License
 
 The code in this repository is licensed under the MIT License. You are free to use, modify, and distribute the code, but you must include the original copyright notice. See the [MIT License](LICENSE) file for full details.
 
