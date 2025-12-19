@@ -1,28 +1,16 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: aben-cad <aben-cad@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/10/27 10:00:00 by aben-cad          #+#    #+#              #
-#    Updated: 2025/11/05 20:18:06 by aben-cad         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME = libftprintf.a
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fPIC
 
 SRC = ft_printf.c \
+	ft_printf_utils.c \
+	ft_print_nbr.c \
+	ft_print_hex.c \
+	ft_print_text.c \
 	ft_strlen.c \
-	ft_strchr.c \
 	ft_putchar_fd.c \
-    ft_putstr_fd.c \
-	ft_putnbr_fd.c \
-	ft_putnbr_x.c \
-	ft_putptr.c
+	ft_putstr_fd.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -30,6 +18,8 @@ $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
 all: $(NAME)
+
+bonus: all
 
 clean:
 	rm -f $(OBJ)
@@ -39,4 +29,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

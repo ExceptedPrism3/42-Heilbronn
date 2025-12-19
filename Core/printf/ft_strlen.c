@@ -6,7 +6,7 @@
 /*   By: aben-cad <aben-cad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 10:34:45 by aben-cad          #+#    #+#             */
-/*   Updated: 2025/10/27 10:36:56 by aben-cad         ###   ########.fr       */
+/*   Updated: 2025/12/11 17:41:37 by aben-cad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 size_t	ft_strlen(const char *s)
 {
-	size_t	uncle_index;
+	size_t	i;
 
-	uncle_index = 0;
-	while (s[uncle_index])
-		uncle_index++;
-	return (uncle_index);
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

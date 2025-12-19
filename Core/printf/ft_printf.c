@@ -6,86 +6,94 @@
 /*   By: aben-cad <aben-cad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 19:57:09 by aben-cad          #+#    #+#             */
-/*   Updated: 2025/11/02 22:34:02 by aben-cad         ###   ########.fr       */
+/*   Updated: 2025/12/11 17:38:39 by aben-cad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/*
-** Helper function: handles secondary format specifiers
-** %c -> character
-** %x / %X -> hexadecimal (lower/upper)
-** %u -> unsigned int
-** %p -> pointer (calls ft_putptr)
-** %% -> percent sign
-*/
-static int	format2(va_list args, const char format)
+static int	ft_dispatch(t_format f, va_list args)
 {
-	if (format == 'c')
-		return (ft_putchar_fd(va_arg(args, int), 1));
-	else if (format == 'x' || format == 'X')
-		return (ft_putnbr_x(va_arg(args, unsigned int), format));
-	else if (format == '%')
+	if (f.spec == 'c')
+		return (ft_print_char(f, args));
+	if (f.spec == 's')
+		return (ft_print_str(f, args));
+	if (f.spec == 'd' || f.spec == 'i' || f.spec == 'u')
+		return (ft_print_nbr(f, args));
+	if (f.spec == 'x' || f.spec == 'X')
+		return (ft_print_hex(f, args));
+	if (f.spec == 'p')
+		return (ft_print_ptr(f, args));
+	if (f.spec == '%')
 		return (ft_putchar_fd('%', 1));
-	else if (format == 'u')
-		return (ft_putnbr_x(va_arg(args, unsigned int), 'u'));
-	else if (format == 'p')
-		return (ft_putptr(va_arg(args, void *)));
 	return (0);
 }
 
-/*
-** Helper function: handles main format specifiers
-** %d / %i -> integer
-** %s -> string
-** forwards all other specifiers to format2()
-
-  return (ft_putstr_fd("(null)", 1)); // handle null strings
-
-*/
-static int	format(va_list args, const char format)
+static void	ft_parse_flags(const char **s, t_format *f)
 {
-	char	*str;
-
-	if (format == 'd' || format == 'i')
-		return (ft_putnbr_fd(va_arg(args, int), 1));
-	else if (format == 's')
+	while (**s && (**s == '-' || **s == '+' || **s == ' '
+			|| **s == '#' || **s == '0'))
 	{
-		str = va_arg(args, char *);
-		if (str == NULL)
-			return (ft_putstr_fd("(null)", 1));
-		else
-			return (ft_putstr_fd(str, 1));
+		if (**s == '-')
+			f->minus = 1;
+		else if (**s == '+')
+			f->plus = 1;
+		else if (**s == ' ')
+			f->space = 1;
+		else if (**s == '#')
+			f->hash = 1;
+		else if (**s == '0')
+			f->zero = 1;
+		(*s)++;
 	}
-	else
-		return (format2(args, format));
+}
+
+const char	*ft_parse_format(const char *s, t_format *f)
+{
+	f->minus = 0;
+	f->plus = 0;
+	f->space = 0;
+	f->zero = 0;
+	f->hash = 0;
+	f->dot = 0;
+	f->width = 0;
+	f->prec = 0;
+	f->spec = 0;
+	ft_parse_flags(&s, f);
+	while (ft_isdigit(*s))
+		f->width = (f->width * 10) + (*s++ - '0');
+	if (*s == '.')
+	{
+		f->dot = 1;
+		s++;
+		while (ft_isdigit(*s))
+			f->prec = (f->prec * 10) + (*s++ - '0');
+	}
+	f->spec = *s;
+	return (s);
 }
 
 int	ft_printf(const char *s, ...)
 {
-	int		i;
-	va_list	args;
-	int		count;
+	va_list		args;
+	t_format	f;
+	int			count;
 
-	i = 0;
-	count = 0;
 	va_start(args, s);
-	while (s[i])
+	count = 0;
+	while (*s)
 	{
-		if (s[i] == '%' && s[i + 1] && ft_strchr("%dcsuixpX", s[i + 1]) != NULL)
+		if (*s == '%')
 		{
-			count += format(args, s[i + 1]);
-			i++;
+			s++;
+			s = ft_parse_format(s, &f);
+			if (f.spec)
+				count += ft_dispatch(f, args);
 		}
-		else if (s[i] == '%' && s[i + 1] == '\0')
-			break ;
 		else
-		{
-			ft_putchar_fd(s[i], 1);
-			count++;
-		}
-		i++;
+			count += ft_putchar_fd(*s, 1);
+		if (*s)
+			s++;
 	}
 	va_end(args);
 	return (count);

@@ -6,7 +6,7 @@
 /*   By: aben-cad <aben-cad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 10:23:14 by aben-cad          #+#    #+#             */
-/*   Updated: 2025/11/02 22:39:16 by aben-cad         ###   ########.fr       */
+/*   Updated: 2025/12/11 17:38:43 by aben-cad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,37 @@
 
 # include <stdarg.h>
 # include <unistd.h>
+# include <stdlib.h>
 
-size_t	ft_strlen(const char *s);
-int		ft_putchar_fd(char c, int fd);
-int		ft_putstr_fd(char *s, int fd);
-int		ft_putnbr_fd(int n, int fd);
-int		ft_putnbr_x(unsigned long long nbr, char c);
-int		ft_putptr(void *ptr);
-char	*ft_strchr(const char *s, int c);
-int		ft_printf(const char *s, ...);
+typedef struct s_format
+{
+	int		minus;
+	int		plus;
+	int		space;
+	int		zero;
+	int		hash;
+	int		dot;
+	int		width;
+	int		prec;
+	char	spec;
+}	t_format;
+
+int			ft_printf(const char *s, ...);
+int			ft_putchar_fd(char c, int fd);
+int			ft_putstr_fd(const char *s, int fd);
+size_t		ft_strlen(const char *s);
+
+const char	*ft_parse_format(const char *s, t_format *f);
+int			ft_isdigit(int c);
+int			ft_pad(int width, int len, int zero);
+int			ft_putstr_case(const char *s, char spec);
+int			ft_putnbr_base(unsigned long long n, char spec);
+int			ft_putnbr_ptr(unsigned long long n);
+
+int			ft_print_char(t_format f, va_list args);
+int			ft_print_str(t_format f, va_list args);
+int			ft_print_nbr(t_format f, va_list args);
+int			ft_print_hex(t_format f, va_list args);
+int			ft_print_ptr(t_format f, va_list args);
 
 #endif

@@ -6,18 +6,18 @@
 /*   By: aben-cad <aben-cad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 10:27:29 by aben-cad          #+#    #+#             */
-/*   Updated: 2025/11/02 21:01:40 by aben-cad         ###   ########.fr       */
+/*   Updated: 2025/12/11 17:41:34 by aben-cad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstr_fd(char *s, int fd)
+int	ft_putstr_fd(const char *s, int fd)
 {
 	int	index;
 
 	if (!s)
-		return (-1);
+		return (0);
 	index = 0;
 	while (s[index])
 	{
