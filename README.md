@@ -41,20 +41,19 @@ Here is a list of the projects I am working on or have completed.
 - [x] [**push_swap**](Core/push_swap)
 
 #### Circle 2
-- [ ] **Exam Rank 02**
+- [x] **Exam Rank 02**
 - [x] [**Born2beroot**](Core/born2beroot)
-- [ ] **A-Maze-ing**
+- [ ] **A-Maze-Ing**
 - [x] [**Python Module 00**](Core/python_module_00)
 - [x] [**Python Module 01**](Core/python_module_01)
-- [ ] **Python Module 02**
-- [ ] **Python Module 03**
-- [ ] **Python Module 04**
-- [ ] **Python Module 05**
-- [ ] **Python Module 06**
-- [ ] **Python Module 07**
-- [ ] **Python Module 08**
+- [x] [**Python Module 02**](Core/python_module_02)
+- [x] [**Python Module 03**](Core/python_module_03)
+- [x] [**Python Module 04**](Core/python_module_04)
+- [x] [**Python Module 05**](Core/python_module_05)
+- [x] [**Python Module 06**](Core/python_module_06)
+- [x] [**Python Module 07**](Core/python_module_07)
+- [x] [**Python Module 08**](Core/python_module_08)
 - [ ] **Python Module 09**
-- [ ] **Python Module 10**
 
 
 ## 📝 Notes
