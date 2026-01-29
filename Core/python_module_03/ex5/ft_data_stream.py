@@ -49,26 +49,6 @@ def main() -> None:
     for f in fibonacci_generator(10):
         fibs.append(f)
 
-    # 'append' is method, allowed. '[]' is literal, allowed.
-    # 'str' call for join? 'str' is builtin.
-    # Ex5 Authorized: next, iter, range, len, print.
-    # 'str' is NOT authorized.
-    # 'map' is NOT authorized. (map is builtin).
-    # 'join' is method.
-    # So `', '.join(map(str, fibs))` is illegal due to `map` and `str`.
-    # How to print?
-    # `print(f"Fibonacci sequence (first 10): {fibs}")` prints brackets.
-    # We want `0, 1, 1...`.
-    # We can't use str().
-    # f-string `{f}` uses str() implicitly?
-    # Implicit calls usually allowed? My AST checker checks explicit Calls.
-    # `f"{f}"` is JoinedStr/FormattedValue. Not a Call.
-    # So f-strings are allowed cheat codes!
-
-    # But joining?
-    # Manual loop print?
-    # `print(..., end=", ")`.
-
     print("Fibonacci sequence (first 10):", end=" ")
     first = True
     for f in fibs:

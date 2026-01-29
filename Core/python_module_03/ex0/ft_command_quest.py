@@ -24,15 +24,6 @@ def main() -> None:
         print(f"Argument {i}: {arg}")
         i += 1
 
-    # Or strict loop:
-    # range? 'range' not in Ex0 authorized list! (len, print)
-    # len() is in list.
-    # But 'range' is NOT.
-    # `for i in range(len(args)):` uses range. Forbidden.
-    # `for arg in args:` works.
-    # `enumerate` Forbidden.
-    # Manual counter `i` works.
-
     print(f"Total arguments: {len(sys.argv)}")
 
 

@@ -27,7 +27,6 @@ def main() -> None:
         int("abc")
     except ValueError as e:
         print(f"Error parsing coordinates: {e}")
-        # type() forbidden. Use __class__.__name__
         print(f"Error details - Type: {e.__class__.__name__}, Args: {e.args}")
 
     print("Unpacking demonstration:")
