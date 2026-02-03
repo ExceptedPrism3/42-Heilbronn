@@ -54,7 +54,7 @@ Here is a list of the projects I am working on or have completed.
 - [x] [**Python Module 07**](Core/python_module_07)
 - [x] [**Python Module 08**](Core/python_module_08)
 - [x] [**Python Module 09**](Core/python_module_09)
-- [ ] **Python Module 10**
+- [x] [**Python Module 10**](Core/python_module_10)
 
 
 ## 📝 Notes
