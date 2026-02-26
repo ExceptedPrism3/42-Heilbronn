@@ -57,10 +57,10 @@ Here is a list of the projects I am working on or have completed.
 - [x] [**Python Module 10**](Core/python_module_10)
 
 ### Circle 3
-- [] **Exam Rank 03**
-- [] **Call Me Maybe**
-- [] **Codexion**
-- [] **Fly-in**
+- [ ] **Exam Rank 03**
+- [ ] **Call Me Maybe**
+- [ ] **Codexion**
+- [ ] **Fly-in**
 
 ## 📝 Notes
 
