@@ -1,5 +1,5 @@
 # A-Maze-ing 🌀
-This project has been created as part of the 42 curriculum by (aben-cad)[https://profile-v3.intra.42.fr/users/aben-cad] and (drakotov)[https://profile-v3.intra.42.fr/users/drakotov].
+This project has been created as part of the 42 curriculum by [aben-cad](https://profile-v3.intra.42.fr/users/aben-cad) and [drakotov](https://profile-v3.intra.42.fr/users/drakotov).
 
 ## Description
 A Python maze generator and visualizer for the terminal. It makes perfect mazes using Recursive Backtracker (DFS) and solves them with BFS.
