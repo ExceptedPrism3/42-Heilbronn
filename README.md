@@ -43,7 +43,7 @@ Here is a list of the projects I am working on or have completed.
 #### Circle 2
 - [x] **Exam Rank 02**
 - [x] [**Born2beroot**](Core/born2beroot)
-- [ ] **A-Maze-Ing**
+- [x] [**A-Maze-Ing**](Core/a_maze_ing)
 - [x] [**Python Module 00**](Core/python_module_00)
 - [x] [**Python Module 01**](Core/python_module_01)
 - [x] [**Python Module 02**](Core/python_module_02)
@@ -56,6 +56,11 @@ Here is a list of the projects I am working on or have completed.
 - [x] [**Python Module 09**](Core/python_module_09)
 - [x] [**Python Module 10**](Core/python_module_10)
 
+### Circle 3
+- [] **Exam Rank 03**
+- [] **Call Me Maybe**
+- [] **Codexion**
+- [] **Fly-in**
 
 ## 📝 Notes
 
