@@ -58,7 +58,7 @@ Here is a list of the projects I am working on or have completed.
 
 ### Circle 3
 - [ ] **Exam Rank 03**
-- [ ] **Call Me Maybe**
+- [x] [**Call Me Maybe**](Core/call_me_maybe)
 - [ ] **Codexion**
 - [ ] **Fly-in**
 
