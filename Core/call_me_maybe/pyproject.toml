@@ -1,0 +1,19 @@
+[project]
+name = "call-me-maybe"
+version = "1.0.0"
+description = "Function calling with constrained decoding"
+requires-python = ">=3.10"
+dependencies = [
+    "torch",
+    "transformers",
+    "huggingface-hub",
+    "numpy",
+    "pydantic",
+    "pypdf>=6.7.2",
+    "flake8>=7.3.0",
+    "mypy>=1.19.1",
+    "ruff>=0.15.2",
+]
+
+[tool.ruff]
+line-length = 79
