@@ -1,0 +1,10 @@
+# Binaries
+codexion
+*.o
+
+# Debug symbols
+*.dSYM/
+
+# Archives
+*.tar.gz
+*.zip
