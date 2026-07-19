@@ -60,7 +60,13 @@ Here is a list of the projects I am working on or have completed.
 - [x] **Exam Rank 03**
 - [x] [**Call Me Maybe**](Core/call_me_maybe)
 - [x] [**Codexion**](Core/codexion)
-- [ ] **Fly-in**
+- [x] [**Fly-in**](Core/fly_in)
+
+### Circle 4
+- [ ] **Exam Rank 04**
+- [ ] RAG against the machine
+- [ ] Pac-Man
+- [ ] NetPractice
 
 ## 📝 Notes
 
