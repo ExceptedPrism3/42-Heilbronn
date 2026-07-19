@@ -13,22 +13,25 @@ This repository serves as an archive of my work at 42 Heilbronn. It documents my
 Here is a list of the projects I am working on or have completed.
 
 ### C Piscine
-- [x] Shell 00
-- [x] Shell 01
-- [x] C 00
-- [x] C 01
-- [x] C 02
-- [x] C 03
-- [x] C 04
-- [x] C 05
-- [x] C 06
-- [x] C 07
-- [x] C 08
-- [x] C 09
+- [x] [Shell 00](Piscine/Shell/shell00)
+- [x] [Shell 01](Piscine/Shell/shell01)
+- [x] [C 00](Piscine/C/c00)
+- [x] [C 01](Piscine/C/c01)
+- [x] [C 02](Piscine/C/c02)
+- [x] [C 03](Piscine/C/c03)
+- [x] [C 04](Piscine/C/c04)
+- [x] [C 05](Piscine/C/c05)
+- [x] [C 06](Piscine/C/c06)
+- [x] [C 07](Piscine/C/c07)
+- [x] [C 08](Piscine/C/c08)
+- [x] [C 09](Piscine/C/c09)
 - [ ] C 10
 - [ ] C 11
 - [ ] C 12
 - [ ] C 13
+- [ ] [Rush 00](Piscine/rush/00/mawelsch)
+- [ ] [Rush 01](Piscine/rush/01/ex00)
+- [ ] [Rush 02](Piscine/rush/02)
 
 ### Common Core
 
